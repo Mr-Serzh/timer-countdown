@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Big Shoulders Stencil Text', cursive;
+  text-transform: uppercase;
+  font-weight: bold;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.8),
+      rgba(47, 48, 58, 0.8)
+    ),
+    url('./paty.jpg');
+  background-color: rgba(47, 48, 58, 0.8);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #ff00ff;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 99px;
+  letter-spacing: 5px;
+}
+
+.timer {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.field {
+  display: inline-block;
+  width: 180px;
+  padding: 25px;
+}
+
+.value {
+  font-size: 100px;
+  color: #ffd700;
+}
+
+.label {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 5px;
+}
