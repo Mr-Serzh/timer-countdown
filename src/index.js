@@ -21,7 +21,7 @@ class CountdownTimer {
     const deltaTime = this.targetDate - currentTime;
     this.getTimeComponents(deltaTime);
   }
- 
+
   /*
    * - Принимает время в миллисекундах
    * - Высчитывает сколько в них вмещается часов/минут/секунд
@@ -35,10 +35,9 @@ class CountdownTimer {
     const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
     const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
 
-    this.timerFace(days, hours, mins, secs)
+    this.timerFace(days, hours, mins, secs);
   }
 
-  
   // Принимает число, приводит к строке и добавляет в начало 0 если число меньше 2-х знаков
   pad(value) {
     return String(value).padStart(2, '0');
@@ -54,5 +53,5 @@ class CountdownTimer {
 
 new CountdownTimer({
   selector: '#timer-1',
-  targetDate: new Date('Dec 10, 2020'),
+  targetDate: new Date('Dec 10, 2021'),
 });
