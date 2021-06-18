@@ -1,25 +1,25 @@
 {
-  "name": "goit-js-hw-11-timer",
+  "name": "timer-countdown",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url /goit-js-hw-11-timer/",
+    "build": "parcel build src/index.html --public-url /timer-countdown/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mr-Serzh/goit-js-hw-11-timer.git"
+    "url": "git+https://github.com/Mr-Serzh/timer-countdown.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mr-Serzh/goit-js-hw-11-timer/issues"
+    "url": "https://github.com/Mr-Serzh/timer-countdown/issues"
   },
-  "homepage": "https://Mr-Serzh.github.io/goit-js-hw-11-timer",
+  "homepage": "https://Mr-Serzh.github.io/timer-countdown",
   "devDependencies": {
     "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4",
