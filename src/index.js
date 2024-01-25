@@ -5,27 +5,48 @@ const secsEl = document.querySelector('span[data-value="secs"]');
 
 class CountdownTimer {
   constructor({ targetDate } = {}) {
+    // Перевіряємо, чи targetDate задано
+    if (!targetDate) {
+      console.error('Error: Please provide a targetDate for the CountdownTimer.');
+      return;
+    }
+
     this.targetDate = targetDate;
     this.init();
   }
 
   init() {
-    this.getDeltaTime();
-    setInterval(() => {
-      this.getDeltaTime();
+    this.updateTimer();
+    this.intervalId = setInterval(() => {
+      this.updateTimer();
     }, 1000);
   }
 
-  getDeltaTime() {
-    const currentTime = Date.now();
+  updateTimer() {
+    const currentTime = new Date();
     const deltaTime = this.targetDate - currentTime;
-    this.getTimeComponents(deltaTime);
+
+    if (deltaTime <= 0) {
+      // Зуптняємо таймер коли targetDate is reached
+      clearInterval(this.intervalId);
+
+      // Отримуємо новий targetDate на наступний рік (11 грудня)
+      const nextYear = currentTime.getFullYear() + 1;
+      const nextTargetDate = new Date(nextYear, 11, 11);
+
+      // Створюємо новий CountdownTimer з новим targetDate
+      new CountdownTimer({
+        targetDate: nextTargetDate,
+      });
+    } else {
+      this.getTimeComponents(deltaTime);
+    }
   }
 
   /*
-   * - Принимает время в миллисекундах
-   * - Высчитывает сколько в них вмещается часов/минут/секунд
-   * - Возвращает обьект со свойствами days, hours, mins, secs
+   * - Прймає час в мілісекундах
+   * - Вираховує скільки в них поміщається годин/хвилин/секунд
+   * - Повертає об'єкт з властивостями days, hours, mins, secs
    */
   getTimeComponents(time) {
     const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
@@ -51,7 +72,10 @@ class CountdownTimer {
   }
 }
 
+// Встановлюємо targetDate на рік після поточної дати
+const currentDate = new Date();
+const targetDate = new Date(currentDate.getFullYear(), 11,  10);
+
 new CountdownTimer({
-  selector: '#timer-1',
-  targetDate: new Date('Dec 10, 2021'),
+  targetDate,
 });
